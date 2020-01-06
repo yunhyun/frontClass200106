@@ -79,6 +79,7 @@
           border-bottom:2px solid #34495e;
         }
         nav ul {
+         /* 메뉴 화면에 표시 */
           display:block;
           width:720px;
           height:40px;
@@ -86,12 +87,16 @@
           margin:0 auto;        
         }
         nav ul li {
+        /* li 요소를 가로로 배치. block : 세로로 배치됨, inline 가로로 배치되지만 간격 없음, inline-block : 가로로 배치되면서 약간의 간격 생김 */
           display:inline-block;
           width:120px;   
           border-bottom:0;
+          /* 오른쪽에 막대기 표시 */
           border-right: 1px solid #576979;        
+          /* inline-block일 때 생기는 마진 때문에 음수로 마진 값 지정  */
           margin-right:-6px;
         }
+        /* 마지막 메뉴(CONTACT) 다음에는 막대기 표시 안함 */
         nav ul li:last-child {
           border-right: 0;
         } 
