@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!-- 본 파일이 어떤 언어로 작성되었는지 알려주는 속성. 검색엔진에서 검색시 활용되기도 한다고 함. 영어는 en -->
+<html lang="ko">
+<head>
+    <!-- 여기는 인코딩 방식 -->
+    <meta charset="UTF-8">
+    <!-- 모바일에서 적절하게 표시하기 위해 설정하는 부분 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <style>
+      * {
+        margin:0;
+        padding:0;
+        /* 내부크기가 아니라 margin, padding을 모두 포함한 크기로 계산 */
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+      }
+      body {
+        background:url('images/windmill.jpg') no-repeat right bottom fixed;
+        /* 배경이미지 옵션 : contain, cover, 또는 직접 사이즈 지정  */
+        background-size:cover;
+        /* background-size: 1000px 600px; */
+      }
+      a:link, a:hover, a:visited {
+        color:#fff;
+        text-decoration:none;
+        text-shadow:1px 1px 0 #283744;
+      }
+      /* 메뉴 디자인 */
+      nav {
+        width:100%;
+        height:auto;
+        background:#34495e;
+        /* em은 반응형에서 화면에 따라 글자 사이즈가 조절되도록 하는 단위 */
+        font-size:1.2em;
+        font-weight:bold;
+        position:relative;
+      }
+      nav ul {
+        display: none;
+        height: auto;
+      }
+      nav ul li {
+        display: block;
+        width: 100%;
+        text-align:center;
+        border-bottom: 1px solid #576979;
+      }
+      /* 메뉴에 속한 글자들의 줄간격  */
+      nav ul li a {
+        line-height:50px;
+      }      
+      nav a#trigger {
+        display:block;
+        background-color:#283744;
+        width:100%;
+        padding-left:15px;
+        line-height:40px;    
+        position:relative;
+      }
+      nav a#trigger::after {
+        content: "";
+        /* 햄버거 아이콘 그림 파일 */
+        background: url('images/nav.png') no-repeat;
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        position: absolute;
+        right: 15px;
+        top: 10px;
+      }
+    /* 여기까지 내용은 화면이 작을 때 지정하는 스타일이고 아래 미디어 쿼리를 이용해서 화면이 클 때 지정하는 스타일 정의 */
+    /* 미디어쿼리 부분. 화면 너비가 721px 이상일 경우에 적용할 스타일 and 하고 띄어쓰기 안하면 적용 안됨  */
+      @media screen and (min-width: 721px){
+        nav {
+          height: 40px;
+          border-bottom:2px solid #34495e;
+        }
+        nav ul {
+          display:block;
+          width:720px;
+          height:40px;
+          padding: 0;
+          margin:0 auto;        
+        }
+        nav ul li {
+          display:inline-block;
+          width:120px;   
+          border-bottom:0;
+          border-right: 1px solid #576979;        
+          margin-right:-6px;
+        }
+        nav ul li:last-child {
+          border-right: 0;
+        } 
+        nav ul li a{
+          font-size:1em;
+          line-height:40px;
+        }
+        nav a#trigger {
+          display: none;
+        }
+      }
+    </style>
+
+
+
+
+
+
+    <title>반응형 메뉴 연습</title>
+</head>
+<body>
+    <nav>
+        <ul>
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">ABOUT</a></li>
+          <li><a href="#">WEB</a></li>
+          <li><a href="#">DESIGN</a></li>
+          <li><a href="#">MAP</a></li>
+          <li><a href="#">CONTACT</a></li>
+        </ul>
+        <!-- 화면이 작아졌을 때 나타나는 트리거 메뉴  -->
+        <a href="#" id="trigger">MENU</a>
+      </nav>
+
+      <script src="//code.jquery.com/jquery-latest.min.js"></script>
+      <script>
+          $(function () {
+            // 햄버거 아이콘 클릭하면 메뉴 노출(jquery slide toggle 사용)
+              var trigger = $('#trigger');
+              var menu = $('nav ul');
+              $(trigger).on('click', function (e) {
+                  e.preventDefault();
+                  menu.slideToggle();
+              });
+            // 화면 크기에 따라 햄버거 메뉴 노출   
+              $(window).resize(function () {
+                  var w = $(window).width();
+                  if (w > 320 && menu.is(':hidden')) {
+                      menu.removeAttr('style');
+                  }
+              });
+          });
+      </script>  
+
+</body>
+</html>
