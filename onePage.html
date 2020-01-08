@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="css/onePage.css" rel="stylesheet" type="text/css">
+    <title>원페이지사이트</title>
+</head>
+<body>
+    <div id="container">
+		<header>
+			<!-- <h1>가고 싶다...</h1> -->
+			<nav>
+				<a href="#eu" class="nav-btn">유럽</a>
+				<a href="#us" class="nav-btn">미국</a>
+				<a href="#au" class="nav-btn">호주</a>
+				<a href="#vt" class="nav-btn">베트남</a>
+			</nav>			
+        </header>
+    </div>
+    <div id="contents">
+		<section id="eu" class="page1">
+			<h2>Europe</h2>			
+		</section>
+		<section id="us" class="page2">
+			<h2>United States</h2>
+		</section>
+		<section id="au" class="page3">
+			<h2>Australia</h2>
+		</section>
+		<section id="vt" class="page4">
+			<h2>Vietnam</h2>
+		</section>
+    </div>
+    
+	<!-- <script src="js/jquery.scrollTo.min.js"></script> -->
+    <!-- <script src="//code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+		$(function(){
+            // 링크 클릭시 실행 
+			$('nav a').click(function(e){
+                // 해당 id 영역으로 스크롤
+				$.scrollTo(this.hash || 0, 1500);
+				// 링크의 원래 기능을 끔 
+                e.preventDefault();
+			});
+		});
+	</script> -->
+
+
+</body>
+</html>
